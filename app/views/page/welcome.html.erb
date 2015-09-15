@@ -1,36 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>meetup</title>
-        <link rel="stylesheet" href="css/common.css">
-        <link rel="stylesheet" href="css/index.css">
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    </head>
-    <body>
-        <div class="navbar clearfix">
-            <div class="container">
-                <a class="navbar-brand" href="/">
-                    Meetup
-                </a>
-                <ul class="nav left">
-                    <li><%= link_to "about", "/about" %></li>
-                    <li><a href="#">placeholder</a></li>
-                </ul>
-                <ul class="nav right">
-                    <li><a href="#">login</a></li>
-                    <li><a href="#">signup</a></li>
-                </ul>
-            </div>
-        </div> 
-        <img src="<%= image_url "home-banner-bg.jpg" %>" class="home-banner" alt="meetup"/>
-        <div class="footer">
-            <div class="container">
-                footer
-            </div>
+<div class="home-banner" data-stretch="<%= image_url "home-banner-bg.jpg" %>">
+    <div class="banner-inner container clearfix">
+        <h1>It's Party Time! Drinkup!</h1>
+        <p class="subheading">Sit down and chat!</p>
+        <div class="home-banner-links">
+            <%= link_to "New Activity", "/issues/new", class: "banner-btn btn" %>
         </div>
-        <script>
-            $(".home-banner").anystretch();
-        </script>
-    </body>
-</html>
+    </div>
+</div>
+<div class="issue-list-header">
+    <div class="container clearfix">
+        <h1 class="issue-list-heading">所有活动都在下面了...</h1>
+    </div>
+</div>
+
+<div class="container clearfix">
+    <%= render partial: "issue_list", locals: { issues: @issues } %>
+</div>
+
+<script>
+$(".home-banner").anystretch();
+</script>
